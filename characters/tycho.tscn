@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://duqi741venl3r"]
 
-[ext_resource type="Script" uid="uid://b6mghi8pvaj5x" path="res://characters/tycho.gd" id="1_4axdr"]
+[ext_resource type="Script" uid="uid://b6mghi8pvaj5x" path="res://scripts/tycho.gd" id="1_4axdr"]
 [ext_resource type="Texture2D" uid="uid://crdihp67aox7x" path="res://sprites/tycho/tycho.png" id="2_hrodl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkyv0"]
@@ -186,4 +186,4 @@ shape = SubResource("RectangleShape2D_nkyv0")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lckaf")
 animation = &"walk-r"
-frame_progress = 0.0406949
+frame_progress = 0.824587

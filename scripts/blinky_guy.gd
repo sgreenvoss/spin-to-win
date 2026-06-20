@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
-const obj_bullet = preload("res://bullet.tscn")
+const obj_bullet = preload("res://other-scenes/bullet.tscn")
 # might store this somwhere else
 var noise = FastNoiseLite.new()
 var health = 2

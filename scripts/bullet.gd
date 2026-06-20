@@ -1,5 +1,5 @@
 extends Area2D
-const obj_splode = preload("res://splode_effect.tscn")
+const obj_splode = preload("res://other-scenes/splode_effect.tscn")
 
 var speed
 var duration = 20
