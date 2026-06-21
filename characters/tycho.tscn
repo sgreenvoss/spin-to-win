@@ -77,7 +77,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6u6b7")
 }],
 "loop": true,
-"name": &"idle-b",
+"name": &"b",
 "speed": 5.0
 }, {
 "frames": [{
@@ -85,7 +85,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_j3mmx")
 }],
 "loop": true,
-"name": &"idle-f",
+"name": &"f",
 "speed": 5.0
 }, {
 "frames": [{
@@ -93,7 +93,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_0kml2")
 }],
 "loop": true,
-"name": &"idle-l",
+"name": &"l",
 "speed": 5.0
 }, {
 "frames": [{
@@ -101,7 +101,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_bax6b")
 }],
 "loop": true,
-"name": &"idle-r",
+"name": &"r",
 "speed": 5.0
 }, {
 "frames": [{
@@ -185,5 +185,4 @@ shape = SubResource("RectangleShape2D_nkyv0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lckaf")
-animation = &"walk-r"
-frame_progress = 0.824587
+animation = &"r"

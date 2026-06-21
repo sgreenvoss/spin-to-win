@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-var dv = "idle-f"
+var dv = "f"
 var health = 10
 signal damaged(current_health)
 
@@ -11,16 +11,16 @@ func _physics_process(_delta):
 		walk_anim(dv)
 	elif direction == Vector2.UP:
 		walk_anim("walk-b")
-		dv = "idle-b"
+		dv = "b"
 	elif direction == Vector2.DOWN:
 		walk_anim("walk-f")
-		dv = "idle-f"
+		dv = "f"
 	elif direction == Vector2.LEFT:
 		walk_anim("walk-l")
-		dv = "idle-l"
+		dv = "l"
 	elif direction == Vector2.RIGHT:
 		walk_anim("walk-r")
-		dv = "idle-r"
+		dv = "r"
 		
 	velocity = direction.normalized() * 200
 	move_and_slide()

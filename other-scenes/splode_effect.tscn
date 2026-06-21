@@ -154,4 +154,4 @@ script = ExtResource("1_wy6cg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u6fd8")
-animation = &"blue"
+animation = &"pink"

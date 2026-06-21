@@ -12,3 +12,7 @@ extends Node2D
 	#
 #func _on_damaged(amt):
 	#health_bar.new_val(amt)
+
+
+func _on_area_2d_body_exited(body):
+	pass # Replace with function body.
