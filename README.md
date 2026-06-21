@@ -21,3 +21,5 @@ Goals:
     - pause (paws) menu!
     - splash screen/start menu
 - story stuff? 
+
+might be using the explosion from https://tenor.com/view/explosion-boom-deltarune-gif-23822980

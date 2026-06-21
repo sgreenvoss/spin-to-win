@@ -4,6 +4,7 @@ class_name Monster
 @onready var rotator = $Rotator
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @export var bullet_type = preload("res://other-scenes/bullet.tscn")
+const SplodeEffect = preload("res://other-scenes/splode_effect.tscn")
 # might store this somwhere else
 # shoutout https://www.youtube.com/watch?v=Z2TaFnN7cdU&t=152s
 var noise = FastNoiseLite.new()
@@ -67,6 +68,10 @@ func take_damage(amt: int):
 	animated_sprite_2d.material.set_shader_parameter("solid_color", PINK)
 	play_dmg()
 	if health <= 0:
+		var splosion = SplodeEffect.instantiate()
+		splosion.position = position
+		splosion.explosion = "deltarune"
+		get_parent().add_child(splosion)
 		queue_free()
 
 func play_dmg():
