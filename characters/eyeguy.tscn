@@ -8,6 +8,7 @@
 radius = 8.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ksgp3"]
+resource_local_to_scene = true
 shader = ExtResource("2_p2m7r")
 shader_parameter/solid_color = Vector4(0, 0, 0, 0)
 
@@ -92,7 +93,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ksgp3")
 }],
 "loop": true,
-"name": &"blonk",
+"name": &"default",
 "speed": 7.0
 }, {
 "frames": [{
@@ -131,5 +132,5 @@ shape = SubResource("CircleShape2D_wutc8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_ksgp3")
 sprite_frames = SubResource("SpriteFrames_3d3j8")
-animation = &"blonk"
-frame_progress = 0.773352
+
+[node name="Rotator" type="Node2D" parent="."]

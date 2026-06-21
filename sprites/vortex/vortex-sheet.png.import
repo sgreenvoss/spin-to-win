@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1hotr5n7puc2"
-path="res://.godot/imported/vortex-sheet.png-044b29d0fc666658da3e775cfa9b828c.ctex"
+path="res://.godot/imported/vortex-sheet.png-c737e9213499357677ef5ade9f971e45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/vortex-sheet.png"
-dest_files=["res://.godot/imported/vortex-sheet.png-044b29d0fc666658da3e775cfa9b828c.ctex"]
+source_file="res://sprites/vortex/vortex-sheet.png"
+dest_files=["res://.godot/imported/vortex-sheet.png-c737e9213499357677ef5ade9f971e45.ctex"]
 
 [params]
 

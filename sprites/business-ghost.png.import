@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ux5vhyt4xv4f"
-path="res://.godot/imported/vortex.png-ca86afac5bcdbcbe928255e6a1f644f1.ctex"
+uid="uid://brme4bhn5nto8"
+path="res://.godot/imported/business-ghost.png-b7f982c105866c9d09f134f7ce55ac43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/vortex.png"
-dest_files=["res://.godot/imported/vortex.png-ca86afac5bcdbcbe928255e6a1f644f1.ctex"]
+source_file="res://sprites/business-ghost.png"
+dest_files=["res://.godot/imported/business-ghost.png-b7f982c105866c9d09f134f7ce55ac43.ctex"]
 
 [params]
 
