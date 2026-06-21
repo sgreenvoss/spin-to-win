@@ -1,13 +1,12 @@
-[gd_scene load_steps=32 format=4 uid="uid://dbmey2lxm8xin"]
+[gd_scene load_steps=17 format=4 uid="uid://dbmey2lxm8xin"]
 
 [ext_resource type="Script" uid="uid://dnukurpo5b0ht" path="res://scripts/game_manager.gd" id="1_0k3yd"]
 [ext_resource type="TileSet" uid="uid://d1klje12ky6bx" path="res://other-scenes/tiles.tres" id="2_0k3yd"]
 [ext_resource type="PackedScene" uid="uid://duqi741venl3r" path="res://characters/tycho.tscn" id="3_k42qd"]
 [ext_resource type="PackedScene" uid="uid://u35821pwhiv3" path="res://characters/eyeguy.tscn" id="4_f84k1"]
 [ext_resource type="Script" uid="uid://bvxf0ha8x8yls" path="res://scripts/vortex.gd" id="5_ud5r4"]
-[ext_resource type="Script" uid="uid://b78afrcm23yao" path="res://other-scenes/ghostguy.gd" id="7_0k3yd"]
 [ext_resource type="Texture2D" uid="uid://d1hotr5n7puc2" path="res://sprites/vortex/vortex-sheet.png" id="7_k8qdy"]
-[ext_resource type="Texture2D" uid="uid://brme4bhn5nto8" path="res://sprites/business-ghost.png" id="7_ou4cc"]
+[ext_resource type="PackedScene" uid="uid://bhobxvuc7loqy" path="res://characters/ghostguy.tscn" id="7_ou4cc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kr5b"]
 radius = 15.0
@@ -79,101 +78,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0k3yd"]
-radius = 9.05539
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iy8hv"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ix0k6"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hmx23"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7k3eg"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u74lg"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3kul"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hdq18"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8bpfj"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fmslr"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(128, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0wv6w"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(144, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_olqe4"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(160, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pcjc"]
-atlas = ExtResource("7_ou4cc")
-region = Rect2(176, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hcdie"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iy8hv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ix0k6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hmx23")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7k3eg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u74lg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x3kul")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hdq18")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8bpfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fmslr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0wv6w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_olqe4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4pcjc")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
-
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_0k3yd")
@@ -215,15 +119,5 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAHAAsAAAAEAAkAAAAHAAwAAAAEAAoAAAAIAAsAAAAAAAkAAAAIAAwAAAAAAAoAAAAJAAsAAAABAAkAAAAJAAwAAAABAAoAAAAKAAsAAAACAAkAAAAKAAwAAAACAAoAAAANAAsAAAAAAAkAAAANAAwAAAAAAAoAAAAOAAsAAAABAAkAAAAOAAwAAAABAAoAAAAPAAsAAAACAAkAAAAPAAwAAAACAAoAAAAQAAsAAAADAAkAAAAQAAwAAAADAAoAAAARAAsAAAAEAAkAAAARAAwAAAAEAAoAAAASAAsAAAAAAAkAAAASAAwAAAAAAAoAAAATAAsAAAABAAkAAAATAAwAAAABAAoAAAADAAsAAAAHAAgAAAADAAwAAAAHAAgAAAAEAAsAAAABAAkAAAAEAAwAAAABAAoAAAAFAAsAAAACAAkAAAAFAAwAAAACAAoAAAAGAAsAAAADAAkAAAAGAAwAAAADAAoAAAAUAAsAAAAHAAgAAAAUAAwAAAAHAAgAAAAVAAsAAAAHAAgAAAAVAAwAAAAHAAgAAAAWAAsAAAAHAAgAAAAWAAwAAAAHAAgAAAALAAsAAAAJAAcAAAALAAwAAAAJAAgAAAAMAAsAAAAKAAcAAAAMAAwAAAAKAAgAAAA=")
 tile_set = ExtResource("2_0k3yd")
 
-[node name="ghostguy2" type="CharacterBody2D" parent="."]
+[node name="ghostguy" parent="." groups=["living"] instance=ExtResource("7_ou4cc")]
 position = Vector2(123, 226)
-script = ExtResource("7_0k3yd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ghostguy2"]
-shape = SubResource("CircleShape2D_0k3yd")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ghostguy2"]
-sprite_frames = SubResource("SpriteFrames_hcdie")
-frame_progress = 0.389175
-
-[node name="Rotator" type="Node2D" parent="ghostguy2"]
