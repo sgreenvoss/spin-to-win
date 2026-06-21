@@ -1,14 +1,15 @@
 extends CharacterBody2D
 class_name Monster
 
+@onready var rotator = $Rotator
 @onready var animated_sprite_2d = $AnimatedSprite2D
 const obj_bullet = preload("res://other-scenes/bullet.tscn")
 # might store this somwhere else
 # shoutout https://www.youtube.com/watch?v=Z2TaFnN7cdU&t=152s
 var noise = FastNoiseLite.new()
-const rotate_speed = 100 # this and below go unused here, for inherited classes
-const spawn_point_count = 4
-const radius = 15
+var rotate_speed = 100 
+var spawn_point_count = 4
+var radius = 15
 
 var health = 2
 var shoot_delay = 0.1
@@ -24,8 +25,19 @@ func _ready():
 	noise.seed = randi()
 	noise.frequency = 0.05
 	noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	
+	# set up spawners
+	var step = 2.0 * PI / float(spawn_point_count)
+	for i in range(spawn_point_count):
+		var spawn_point = Node2D.new()
+		var pos = Vector2(radius, 0).rotated(step * i)
+		spawn_point.position = pos
+		spawn_point.rotation = pos.angle()
+		rotator.add_child(spawn_point)
 
 func _physics_process(delta):
+	var new_rotation = rotator.rotation_degrees + rotate_speed * delta
+	rotator.rotation_degrees = fmod(new_rotation, 360)
 	# this guy is gonna move with perlin noise i think
 	t += delta * 10
 	shoot_timer += delta
@@ -38,30 +50,16 @@ func _physics_process(delta):
 	velocity = Vector2(directionx, directiony).normalized() * 10
 	move_and_slide()
 	
-func shoot_dir(ct):
-	var choice = ct % 4
-	var direction
 
-	match choice:
-		0:
-			direction = Vector2.RIGHT
-		1:
-			direction = Vector2.DOWN
-		2:
-			direction = Vector2.LEFT
-		3: 
-			direction = Vector2.UP
-
-	return direction
 
 func shoot():
-	var new_bullet = obj_bullet.instantiate()
-	counter += 1
-	var direction = shoot_dir(counter)
-	new_bullet.speed = bullet_speed
-	new_bullet.rotation = direction.angle()
-	new_bullet.position = transform.get_origin() + direction * radius
-	get_parent().add_child(new_bullet)
+	for s in rotator.get_children():
+		var bullet = obj_bullet.instantiate()
+		bullet.position = s.global_position
+		bullet.rotation = s.global_rotation
+		bullet.speed = bullet_speed
+		get_tree().root.add_child(bullet)
+		
 	
 func take_damage(amt: int):
 	health -= amt
