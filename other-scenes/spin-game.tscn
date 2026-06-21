@@ -1,11 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://dbmey2lxm8xin"]
+[gd_scene load_steps=33 format=4 uid="uid://dbmey2lxm8xin"]
 
 [ext_resource type="Script" uid="uid://dnukurpo5b0ht" path="res://scripts/game_manager.gd" id="1_0k3yd"]
 [ext_resource type="Texture2D" uid="uid://cldmmmmtvantt" path="res://sprites/tiles.png" id="2_k8qdy"]
 [ext_resource type="PackedScene" uid="uid://duqi741venl3r" path="res://characters/tycho.tscn" id="3_k42qd"]
 [ext_resource type="PackedScene" uid="uid://u35821pwhiv3" path="res://characters/eyeguy.tscn" id="4_f84k1"]
 [ext_resource type="Script" uid="uid://bvxf0ha8x8yls" path="res://scripts/vortex.gd" id="5_ud5r4"]
-[ext_resource type="Texture2D" uid="uid://ux5vhyt4xv4f" path="res://sprites/vortex.png" id="6_oabqr"]
+[ext_resource type="Texture2D" uid="uid://d1hotr5n7puc2" path="res://sprites/vortex-sheet.png" id="7_k8qdy"]
 [ext_resource type="Script" uid="uid://bg76e2nn4vtlm" path="res://scripts/health.gd" id="7_uhuyw"]
 [ext_resource type="Texture2D" uid="uid://brnrhyjreupi6" path="res://sprites/heart.png" id="8_iy8hv"]
 
@@ -193,6 +193,73 @@ sources/0 = SubResource("TileSetAtlasSource_fo34h")
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kr5b"]
 radius = 15.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k3yd"]
+atlas = ExtResource("7_k8qdy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8qdy"]
+atlas = ExtResource("7_k8qdy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k42qd"]
+atlas = ExtResource("7_k8qdy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f84k1"]
+atlas = ExtResource("7_k8qdy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud5r4"]
+atlas = ExtResource("7_k8qdy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oabqr"]
+atlas = ExtResource("7_k8qdy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhuyw"]
+atlas = ExtResource("7_k8qdy")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix0k6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k3yd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8qdy")
+}],
+"loop": true,
+"name": &"out",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k42qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f84k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud5r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oabqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhuyw")
+}],
+"loop": false,
+"name": &"vortex",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3d3j8"]
 atlas = ExtResource("8_iy8hv")
 region = Rect2(0, 0, 16, 16)
@@ -306,13 +373,14 @@ position = Vector2(150, 156)
 [node name="vortex" type="Node2D" parent="."]
 script = ExtResource("5_ud5r4")
 
-[node name="Sprite2D" type="Sprite2D" parent="vortex"]
-texture = ExtResource("6_oabqr")
-
 [node name="Area2D" type="Area2D" parent="vortex"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vortex/Area2D"]
 shape = SubResource("CircleShape2D_4kr5b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="vortex"]
+sprite_frames = SubResource("SpriteFrames_ix0k6")
+animation = &"out"
 
 [node name="health" type="Control" parent="."]
 layout_mode = 3
