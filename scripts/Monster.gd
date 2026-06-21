@@ -3,7 +3,7 @@ class_name Monster
 
 @onready var rotator = $Rotator
 @onready var animated_sprite_2d = $AnimatedSprite2D
-const obj_bullet = preload("res://other-scenes/bullet.tscn")
+@export var bullet_type = preload("res://other-scenes/bullet.tscn")
 # might store this somwhere else
 # shoutout https://www.youtube.com/watch?v=Z2TaFnN7cdU&t=152s
 var noise = FastNoiseLite.new()
@@ -54,7 +54,7 @@ func _physics_process(delta):
 
 func shoot():
 	for s in rotator.get_children():
-		var bullet = obj_bullet.instantiate()
+		var bullet = bullet_type.instantiate()
 		bullet.position = s.global_position
 		bullet.rotation = s.global_rotation
 		bullet.speed = bullet_speed

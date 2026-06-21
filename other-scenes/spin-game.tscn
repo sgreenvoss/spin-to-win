@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://dbmey2lxm8xin"]
+[gd_scene load_steps=18 format=4 uid="uid://dbmey2lxm8xin"]
 
 [ext_resource type="Script" uid="uid://dnukurpo5b0ht" path="res://scripts/game_manager.gd" id="1_0k3yd"]
 [ext_resource type="TileSet" uid="uid://d1klje12ky6bx" path="res://other-scenes/tiles.tres" id="2_0k3yd"]
 [ext_resource type="PackedScene" uid="uid://duqi741venl3r" path="res://characters/tycho.tscn" id="3_k42qd"]
 [ext_resource type="PackedScene" uid="uid://u35821pwhiv3" path="res://characters/eyeguy.tscn" id="4_f84k1"]
+[ext_resource type="PackedScene" uid="uid://chsnukbg07gqa" path="res://other-scenes/unspinnable-bullet.tscn" id="5_0k3yd"]
 [ext_resource type="Script" uid="uid://bvxf0ha8x8yls" path="res://scripts/vortex.gd" id="5_ud5r4"]
 [ext_resource type="Texture2D" uid="uid://d1hotr5n7puc2" path="res://sprites/vortex/vortex-sheet.png" id="7_k8qdy"]
 [ext_resource type="PackedScene" uid="uid://bhobxvuc7loqy" path="res://characters/ghostguy.tscn" id="7_ou4cc"]
@@ -96,6 +97,7 @@ zoom = Vector2(3, 3)
 
 [node name="eyeguy" parent="." instance=ExtResource("4_f84k1")]
 position = Vector2(150, 156)
+bullet_type = ExtResource("5_0k3yd")
 
 [node name="eyeguy2" parent="." instance=ExtResource("4_f84k1")]
 position = Vector2(255, 77)

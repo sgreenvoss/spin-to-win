@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bhobxvuc7loqy"]
 
-[ext_resource type="Script" uid="uid://b78afrcm23yao" path="res://other-scenes/ghostguy.gd" id="1_arwif"]
+[ext_resource type="Script" uid="uid://b78afrcm23yao" path="res://scripts/ghostguy.gd" id="1_arwif"]
 [ext_resource type="Shader" uid="uid://dmn25rcmehq13" path="res://scripts/hit_flash.gdshader" id="2_cnb1d"]
 [ext_resource type="Texture2D" uid="uid://brme4bhn5nto8" path="res://sprites/business-ghost.png" id="2_nrkcv"]
 

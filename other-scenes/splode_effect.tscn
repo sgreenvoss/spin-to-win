@@ -1,7 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://do0edsgy1jefj"]
+[gd_scene load_steps=17 format=3 uid="uid://do0edsgy1jefj"]
 
 [ext_resource type="Script" uid="uid://dokd8y32yhu6o" path="res://scripts/splode_effect.gd" id="1_wy6cg"]
 [ext_resource type="Texture2D" uid="uid://c4dtxmqhhhrsl" path="res://sprites/bullet-sheet.png" id="2_7ev11"]
+[ext_resource type="Texture2D" uid="uid://c01jrtffxpsx0" path="res://sprites/gray-bullet.png" id="2_nyx8q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms0bq"]
+atlas = ExtResource("2_nyx8q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmm3v"]
+atlas = ExtResource("2_nyx8q")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rplmp"]
+atlas = ExtResource("2_nyx8q")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b76ms"]
+atlas = ExtResource("2_nyx8q")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dvuc"]
+atlas = ExtResource("2_nyx8q")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk4qq"]
+atlas = ExtResource("2_nyx8q")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3d3j8"]
 atlas = ExtResource("2_7ev11")
@@ -31,6 +56,29 @@ region = Rect2(80, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ms0bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmm3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rplmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b76ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dvuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk4qq")
+}],
+"loop": false,
+"name": &"gray",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3d3j8")
 }, {
 "duration": 1.0,
@@ -49,7 +97,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4eiqj")
 }],
 "loop": false,
-"name": &"splode",
+"name": &"pink",
 "speed": 15.0
 }]
 
@@ -58,4 +106,4 @@ script = ExtResource("1_wy6cg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u6fd8")
-animation = &"splode"
+animation = &"gray"
