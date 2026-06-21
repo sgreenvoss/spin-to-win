@@ -1,8 +1,33 @@
-[gd_scene load_steps=17 format=3 uid="uid://do0edsgy1jefj"]
+[gd_scene load_steps=24 format=3 uid="uid://do0edsgy1jefj"]
 
 [ext_resource type="Script" uid="uid://dokd8y32yhu6o" path="res://scripts/splode_effect.gd" id="1_wy6cg"]
 [ext_resource type="Texture2D" uid="uid://c4dtxmqhhhrsl" path="res://sprites/bullet-sheet.png" id="2_7ev11"]
+[ext_resource type="Texture2D" uid="uid://dusxvdoxackye" path="res://sprites/blue-bullet-sheet.png" id="2_ms0bq"]
 [ext_resource type="Texture2D" uid="uid://c01jrtffxpsx0" path="res://sprites/gray-bullet.png" id="2_nyx8q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynun3"]
+atlas = ExtResource("2_ms0bq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuspa"]
+atlas = ExtResource("2_ms0bq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb4ma"]
+atlas = ExtResource("2_ms0bq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mohs1"]
+atlas = ExtResource("2_ms0bq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0seon"]
+atlas = ExtResource("2_ms0bq")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pw76"]
+atlas = ExtResource("2_ms0bq")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ms0bq"]
 atlas = ExtResource("2_nyx8q")
@@ -56,6 +81,29 @@ region = Rect2(80, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ynun3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuspa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb4ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mohs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0seon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pw76")
+}],
+"loop": false,
+"name": &"blue",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ms0bq")
 }, {
 "duration": 1.0,
@@ -106,4 +154,4 @@ script = ExtResource("1_wy6cg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u6fd8")
-animation = &"gray"
+animation = &"blue"

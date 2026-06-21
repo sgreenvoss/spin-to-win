@@ -7,6 +7,7 @@ var duration = 20
 var relaxed: bool = false
 var velocity
 var explosion_name
+var spin_dir = 1
 
 func make_new_vel():
 	velocity = speed * Vector2.from_angle(rotation)

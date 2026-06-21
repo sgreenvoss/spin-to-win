@@ -14,7 +14,8 @@ Goals:
     - different bullet types
     - ice bullets to slow down enemies/you (slows rate of fire)
     - was thinking of seeking bullets (you have to spin them behind a enemy so they seek you Through the enemy) but thats probably a nice-to-have, not a must
-    - right now as cat i am not moving around much - consider bullets that can't be spun?
+    - DONE counter-clockwise bullets
+    - DONE nonspinning bullets
 - juice: cat dmg animation on hit, maybe screen shake, vortex animation
 - UI:
     - pause (paws) menu!

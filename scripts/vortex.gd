@@ -33,9 +33,9 @@ func vortex(delta):
 		if body.is_in_group("bullet"):
 			body.relax()
 			var offset = body.global_position - global_position
-			offset = offset.rotated(rotation_speed)
+			offset = offset.rotated(body.spin_dir * rotation_speed)
 			body.global_position = global_position + offset
-			body.rotation += rotation_speed
+			body.rotation += rotation_speed * body.spin_dir
 			
 	if in_vortex > vortex_duration or Input.is_action_just_released("vortex"):
 		animated_sprite_2d.play("out")
