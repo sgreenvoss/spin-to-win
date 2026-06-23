@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cldmmmmtvantt" path="res://sprites/tiles.png" id="2_ev872"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f84k1"]
-size = Vector2(28, 15)
+size = Vector2(30, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oabqr"]
 size = Vector2(30, 30)
@@ -20,7 +20,7 @@ region_enabled = true
 region_rect = Rect2(144, 112, 31.9086, 32)
 
 [node name="blocking_collider" type="CollisionShape2D" parent="."]
-position = Vector2(11, 30.5)
+position = Vector2(11, 23)
 shape = SubResource("RectangleShape2D_f84k1")
 
 [node name="interactable_area" type="Area2D" parent="."]

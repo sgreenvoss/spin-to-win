@@ -3,13 +3,15 @@ extends CharacterBody2D
 
 var dv = "f"
 var health = 10
+var dollars = 0
 signal damaged(past_health, current_health)
 signal dead()
 
 const PINK = Vector4(232, 106, 115, 256)
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
+	if !delta: return # delta because if it's paused this should be 0
 	if direction.length() == 0:
 		walk_anim(dv)
 	elif direction == Vector2.UP:
