@@ -11,6 +11,15 @@ Goals:
     - DONE: they are still rects but now have different colored sides
     - trail? maybe too expensive
 - obviously build out map, have different enemies with diff patterns
+    -  Rooms:
+        - DONE-ish maintenance room -> add mop, bucket, electrical box, broom, others? more ground pipes maybe
+        - DONE-ish conference room -> add chairs?
+        - office
+        - cubicle zone
+        - break room
+        - kitchen
+        - open space
+        - BOSS' office
     - different bullet types
     - ice bullets to slow down enemies/you (slows rate of fire)
     - was thinking of seeking bullets (you have to spin them behind a enemy so they seek you Through the enemy) but thats probably a nice-to-have, not a must
@@ -18,8 +27,11 @@ Goals:
     - DONE nonspinning bullets
 - juice: DONE: cat dmg animation on hit, maybe screen shake, DONE: vortex animation
 - UI:
-    - pause (paws) menu!
+    - DONE: initial pause (paws) menu! -> very ugly, fix if time
     - splash screen/start menu
 - story stuff? 
+- zones/fog of war type shit -> before entering a room, its tiles are invisible and enemies are dormant
+    - important: fix the sorting on the brick wall. perchance nix the fancy sorting
+
 
 might be using the explosion from https://tenor.com/view/explosion-boom-deltarune-gif-23822980
