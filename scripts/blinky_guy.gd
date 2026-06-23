@@ -4,7 +4,6 @@ class_name Blinky_guy
 func _ready():
 	super._ready()
 	rotate_speed = 0
-	shoot_delay = 0.5
 	
 #func _ready():
 	#animated_sprite_2d.play("blonk")

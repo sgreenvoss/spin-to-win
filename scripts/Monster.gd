@@ -4,16 +4,16 @@ class_name Monster
 @onready var rotator = $Rotator
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @export var bullet_type = preload("res://other-scenes/bullet.tscn")
+@export var spawn_point_count = 4
+@export var shoot_delay = 0.1
 const SplodeEffect = preload("res://other-scenes/splode_effect.tscn")
 # might store this somwhere else
 # shoutout https://www.youtube.com/watch?v=Z2TaFnN7cdU&t=152s
 var noise = FastNoiseLite.new()
 var rotate_speed = 100 
-var spawn_point_count = 4
 var radius = 15
 
 var health = 2
-var shoot_delay = 0.1
 var shoot_timer = 0.0
 var t = 0.0
 var counter = 0

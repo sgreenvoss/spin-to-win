@@ -1,8 +1,10 @@
 extends Node2D
 var mousepos
 @onready var area_2d = $Area2D
-@onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var line_of_sight = $line_of_sight
+@onready var tycho = $"../Tycho"
+
 var rotation_speed = 0.05
 var vortex_duration = 1.0
 var vortex_delay = 1.0
@@ -17,7 +19,7 @@ func _process(delta):
 		mousepos = get_global_mouse_position()
 		position = mousepos
 		time_since_v += delta
-		if time_since_v > vortex_delay:
+		if time_since_v > vortex_delay and in_los():
 			animated_sprite_2d.play("default")
 			
 			if Input.is_action_pressed("vortex"):
@@ -25,6 +27,16 @@ func _process(delta):
 				in_vortex = 0
 				vortexing = true
 				vortex(delta)
+		else:
+			animated_sprite_2d.play("out")
+
+func in_los():
+	line_of_sight.global_position = tycho.global_position
+	line_of_sight.target_position = global_position - line_of_sight.global_position
+	line_of_sight.force_raycast_update()
+	
+	return !line_of_sight.is_colliding() or line_of_sight.get_collider().name == "vortex_collider"
+
 
 func vortex(delta):
 	in_vortex += delta

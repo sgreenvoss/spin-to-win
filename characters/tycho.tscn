@@ -1,10 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://duqi741venl3r"]
+[gd_scene load_steps=23 format=3 uid="uid://duqi741venl3r"]
 
 [ext_resource type="Script" uid="uid://b6mghi8pvaj5x" path="res://scripts/tycho.gd" id="1_4axdr"]
 [ext_resource type="Texture2D" uid="uid://crdihp67aox7x" path="res://sprites/tycho/tycho.png" id="2_hrodl"]
+[ext_resource type="Shader" uid="uid://dmn25rcmehq13" path="res://scripts/hit_flash.gdshader" id="2_iexve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkyv0"]
 size = Vector2(12.5, 29.25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4fn48"]
+shader = ExtResource("2_iexve")
+shader_parameter/solid_color = Vector4(0, 0, 0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6u6b7"]
 atlas = ExtResource("2_hrodl")
@@ -183,6 +188,7 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_nkyv0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4fn48")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lckaf")
 animation = &"r"

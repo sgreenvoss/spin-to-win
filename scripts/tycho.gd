@@ -3,7 +3,10 @@ extends CharacterBody2D
 
 var dv = "f"
 var health = 10
-signal damaged(current_health)
+signal damaged(past_health, current_health)
+signal dead()
+
+const PINK = Vector4(232, 106, 115, 256)
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -26,9 +29,19 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func take_damage(amount: int):
+	animated_sprite_2d.material.set_shader_parameter("solid_color", PINK)
+	play_dmg()
+	var past_health = health
 	health -= amount
-	damaged.emit(health)
+	if health >= 0:
+		damaged.emit(past_health, health)
+	else:
+		dead.emit()
+	
 
 func walk_anim(animation: String):
 	animated_sprite_2d.play(animation)
 	
+func play_dmg():
+	await get_tree().create_timer(0.1).timeout
+	animated_sprite_2d.material.set_shader_parameter("solid_color", Vector4.ZERO)

@@ -1,5 +1,4 @@
-extends Node2D
-
+extends Node
 
 #@onready var health_bar = $CanvasLayer/health
 
@@ -14,5 +13,5 @@ extends Node2D
 	#health_bar.new_val(amt)
 
 
-func _on_area_2d_body_exited(body):
+func _on_tycho_dead():
 	pass # Replace with function body.
