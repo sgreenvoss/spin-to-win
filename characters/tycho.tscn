@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://dmn25rcmehq13" path="res://scripts/hit_flash.gdshader" id="2_iexve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkyv0"]
-size = Vector2(12.5, 29.25)
+size = Vector2(12.25, 20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4fn48"]
 shader = ExtResource("2_iexve")
@@ -183,7 +183,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_4axdr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2.25)
+position = Vector2(-0.25, -2.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_nkyv0")
 

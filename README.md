@@ -6,7 +6,7 @@ Goals:
     - DONE: vortex indicator (it's ugly but still)
           - DONE: perhaps different colors when available/not available 
           - DONE:perhaps color changes while vortexing up until vortex duration over
-- health indicator, maybe using the heart sprites but maybe not
+- DONE: health indicator, maybe using the heart sprites but maybe not
 - bullets should be triangular to indicate direction
     - DONE: they are still rects but now have different colored sides
     - trail? maybe too expensive
@@ -16,7 +16,7 @@ Goals:
     - was thinking of seeking bullets (you have to spin them behind a enemy so they seek you Through the enemy) but thats probably a nice-to-have, not a must
     - DONE counter-clockwise bullets
     - DONE nonspinning bullets
-- juice: cat dmg animation on hit, maybe screen shake, vortex animation
+- juice: DONE: cat dmg animation on hit, maybe screen shake, DONE: vortex animation
 - UI:
     - pause (paws) menu!
     - splash screen/start menu
