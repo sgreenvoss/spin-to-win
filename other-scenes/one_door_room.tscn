@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1m0xxqx5rrn8"]
+
+[ext_resource type="Script" uid="uid://dthxgltosy76f" path="res://other-scenes/room.gd" id="1_n2c82"]
+[ext_resource type="Script" uid="uid://cyyiqtgavbj7x" path="res://Door.gd" id="2_3bmwx"]
+[ext_resource type="Texture2D" uid="uid://cldmmmmtvantt" path="res://sprites/tiles.png" id="3_qxeiv"]
+[ext_resource type="Script" uid="uid://bolxv84pyna7t" path="res://other-scenes/container_for_enemie.gd" id="4_p5cv3"]
+[ext_resource type="PackedScene" uid="uid://u35821pwhiv3" path="res://characters/eyeguy.tscn" id="5_l10ly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f84k1"]
+size = Vector2(14, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oabqr"]
+size = Vector2(30, 30)
+
+[node name="hallway" type="Node"]
+script = ExtResource("1_n2c82")
+
+[node name="Door" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-107, 217)
+script = ExtResource("2_3bmwx")
+orientation = "r"
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+position = Vector2(3, 23)
+texture = ExtResource("3_qxeiv")
+region_enabled = true
+region_rect = Rect2(144, 112, 16, 32)
+
+[node name="blocking_collider" type="CollisionShape2D" parent="Door"]
+position = Vector2(3, 23.5)
+shape = SubResource("RectangleShape2D_f84k1")
+
+[node name="interactable_area" type="Area2D" parent="Door"]
+position = Vector2(-15, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/interactable_area"]
+y_sort_enabled = true
+position = Vector2(11, 24)
+shape = SubResource("RectangleShape2D_oabqr")
+
+[node name="Creatures" type="Node" parent="."]
+script = ExtResource("4_p5cv3")
+
+[node name="eyeguy5" parent="Creatures" instance=ExtResource("5_l10ly")]
+visible = false
+position = Vector2(-11, 241)
+spawn_point_count = 2
+shoot_delay = 0.5
+
+[node name="fow" type="ColorRect" parent="."]
+offset_left = -96.0
+offset_top = 176.0
+offset_right = 344.0
+offset_bottom = 272.0
+color = Color(0.133333, 0.109804, 0.101961, 1)
+
+[connection signal="body_entered" from="Door/interactable_area" to="Door" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Door/interactable_area" to="Door" method="_on_area_2d_body_exited"]

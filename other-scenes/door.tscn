@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cldmmmmtvantt" path="res://sprites/tiles.png" id="2_ev872"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f84k1"]
+resource_local_to_scene = true
 size = Vector2(30, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oabqr"]

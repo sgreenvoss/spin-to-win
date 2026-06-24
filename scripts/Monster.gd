@@ -37,6 +37,8 @@ func _ready():
 		rotator.add_child(spawn_point)
 
 func _physics_process(delta):
+	if not visible:
+		return
 	var new_rotation = rotator.rotation_degrees + rotate_speed * delta
 	rotator.rotation_degrees = fmod(new_rotation, 360)
 	# this guy is gonna move with perlin noise i think
