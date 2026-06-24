@@ -14,7 +14,7 @@ Goals:
     -  Rooms:
         - DONE-ish maintenance room -> add mop, bucket, electrical box, broom, others? more ground pipes maybe
         - DONE-ish conference room -> add chairs?
-        - office
+        - office -> keep workin on these
         - cubicle zone
         - break room
         - kitchen
@@ -30,8 +30,12 @@ Goals:
     - DONE: initial pause (paws) menu! -> very ugly, fix if time
     - splash screen/start menu
 - story stuff? 
-- zones/fog of war type shit -> before entering a room, its tiles are invisible and enemies are dormant
-    - important: fix the sorting on the brick wall. perchance nix the fancy sorting
+    - storyboarded out: work on drawing these (not necessary to have all)
+    - AN ENDING PLEASE?
+- DONE: zones/fog of war type shit -> before entering a room, its tiles are invisible and enemies are dormant
+    - DONE i think: important: fix the sorting on the brick wall. perchance nix the fancy sorting
 
 
 might be using the explosion from https://tenor.com/view/explosion-boom-deltarune-gif-23822980
+
+font is https://managore.itch.io/m5x7
