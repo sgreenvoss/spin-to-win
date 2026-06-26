@@ -5,6 +5,9 @@ class_name GameManager
 @onready var panel = $Control/panel
 @onready var heart = $Control/heart
 @onready var tooltip = $Control/tooltip
+@onready var money_text = $Control/money
+@onready var mt_words = $Control/money/words
+
 var money = 0
 var paused = false
 @onready var character = $Control/panel/character
@@ -26,6 +29,7 @@ func play_scene(_panel, words):
 	return
 		
 func play_intro():
+	money_text.hide()
 	if StateSaver.played_intro == true:
 		leaveCutscene()
 		return
@@ -50,6 +54,7 @@ func play_intro():
 	character.hide()
 
 func leaveCutscene():
+	money_text.show()
 	panel.hide()
 	paused = false
 	heart.show()
@@ -67,8 +72,8 @@ func pauseMenu():
 	
 	paused = !paused
 	
-func play_dialog(text, color="white"):
-	dialog_box.play_dialog(text, color)
+func play_dialog(text):
+	dialog_box.play_dialog(text)
 	await dialog_box.contd
 	return
 
@@ -97,4 +102,10 @@ func on_pickup_collected(name):
 			open_key = true
 		"$100":
 			money += 100
+			mt_words.text = "$%s" %money
 	tooltip.play_dialog_timed("+ %s" %name, 3)
+
+
+func _on_money_picked_up(_name):
+	money += 100
+	mt_words.text = "$%s" %money

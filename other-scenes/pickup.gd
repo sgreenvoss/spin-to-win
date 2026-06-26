@@ -4,7 +4,6 @@ var r_t = 0
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @export var pickup_name = ""
 signal picked_up(name)
-@onready var game = $".."
 
 func _process(delta):
 	r_t += delta
