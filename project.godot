@@ -15,6 +15,10 @@ run/main_scene="uid://dbmey2lxm8xin"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+StateSaver="*res://scripts/state_saver.gd"
+
 [display]
 
 window/size/viewport_width=1200

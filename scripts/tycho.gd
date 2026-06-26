@@ -1,15 +1,18 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
+const SplodeEffect = preload("res://other-scenes/splode_effect.tscn")
 
 var dv = "f"
 var health = 10
 var dollars = 0
+var _dead = false
 signal damaged(past_health, current_health)
 signal dead()
 
 const PINK = Vector4(232, 106, 115, 256)
 
 func _physics_process(delta):
+	if _dead: return
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if !delta: return # delta because if it's paused this should be 0
 	if direction.length() == 0:
@@ -31,6 +34,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_damage(amount: int):
+	if _dead: return
 	animated_sprite_2d.material.set_shader_parameter("solid_color", PINK)
 	play_dmg()
 	var past_health = health
@@ -38,6 +42,13 @@ func take_damage(amount: int):
 	if health >= 0:
 		damaged.emit(past_health, health)
 	else:
+		_dead = true
+		var splosion = SplodeEffect.instantiate()
+		splosion.position = position
+		splosion.explosion = "deltarune"
+		get_parent().add_child(splosion)
+		animated_sprite_2d.hide()
+		await splosion.animated_sprite_2d.animation_finished
 		dead.emit()
 	
 

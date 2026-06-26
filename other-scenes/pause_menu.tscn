@@ -29,12 +29,14 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Resume"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
