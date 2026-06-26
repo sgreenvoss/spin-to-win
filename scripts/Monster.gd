@@ -6,11 +6,14 @@ class_name Monster
 @export var bullet_type = preload("res://other-scenes/bullet.tscn")
 @export var spawn_point_count = 4
 @export var shoot_delay = 0.1
+@export var drop = false
+@export var drops = preload("res://other-scenes/key.tscn")
 const SplodeEffect = preload("res://other-scenes/splode_effect.tscn")
 # might store this somwhere else
 # shoutout https://www.youtube.com/watch?v=Z2TaFnN7cdU&t=152s
 var noise = FastNoiseLite.new()
 var rotate_speed = 100 
+@export var rotate_dir = 1
 var radius = 15
 
 var health = 2
@@ -39,7 +42,7 @@ func _ready():
 func _physics_process(delta):
 	if not visible:
 		return
-	var new_rotation = rotator.rotation_degrees + rotate_speed * delta
+	var new_rotation = rotator.rotation_degrees + rotate_speed * delta * rotate_dir
 	rotator.rotation_degrees = fmod(new_rotation, 360)
 	# this guy is gonna move with perlin noise i think
 	t += delta * 10
@@ -70,11 +73,25 @@ func take_damage(amt: int):
 	animated_sprite_2d.material.set_shader_parameter("solid_color", PINK)
 	play_dmg()
 	if health <= 0:
+		#drop()
 		var splosion = SplodeEffect.instantiate()
 		splosion.position = position
 		splosion.explosion = "deltarune"
 		get_parent().add_child(splosion)
+		
+		if drop:
+			var d = drops.instantiate()
+			get_tree().current_scene.add_child(d)
+			#d.picked_up.connect(GameManager.on_key_picked_up)
+			d.position = position
+			get_parent().add_child(d)
 		queue_free()
+
+#func drop(key_id=0):
+	#match drops:
+		#"key":
+			#var key = Key.instantiate()
+			#get_parent().add_child
 
 func play_dmg():
 	await get_tree().create_timer(0.1).timeout

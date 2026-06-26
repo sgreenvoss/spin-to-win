@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dthxgltosy76f" path="res://other-scenes/room.gd" id="1_n2c82"]
 [ext_resource type="Script" uid="uid://cyyiqtgavbj7x" path="res://Door.gd" id="2_3bmwx"]
-[ext_resource type="Texture2D" uid="uid://cldmmmmtvantt" path="res://sprites/tiles.png" id="3_qxeiv"]
+[ext_resource type="Texture2D" uid="uid://bkofcfqqlxlxj" path="res://sprites/tiles.png" id="3_qxeiv"]
 [ext_resource type="Script" uid="uid://bolxv84pyna7t" path="res://other-scenes/container_for_enemie.gd" id="4_p5cv3"]
 [ext_resource type="PackedScene" uid="uid://u35821pwhiv3" path="res://characters/eyeguy.tscn" id="5_l10ly"]
 

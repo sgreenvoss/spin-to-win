@@ -1,9 +1,11 @@
 extends Node
+class_name GameManager
 @onready var pause_menu = $Control/PauseMenu
 @onready var dialog_box = $Control/DialogBox
 @onready var panel = $Control/panel
 @onready var heart = $Control/heart
-
+@onready var tooltip = $Control/tooltip
+var money = 0
 var paused = false
 
 func _ready():
@@ -31,7 +33,7 @@ func play_intro():
 					 "You can't think of a single moment where you blew your cover. Your infiltration of the ghost office was impeccable, your disguise imperceptible."
 	)
 	await play_scene("CONF_2",
-					 "Somehow, those ingenious ghosts got the best of you. You'll never know what tipped them off.")
+					 "Somehow, those ingenious ghosts figured you out. You'll never know what tipped them off.")
 					
 	await play_scene("DARK",
 					 "An attempt at escape has left you stranded in a dank maintenance room, bullets beating against the too-thin door."
@@ -80,3 +82,9 @@ func _on_give_up_pressed():
 
 func _on_dialog_box_contd():
 	pass # Replace with function body.
+
+
+
+
+func on_key_picked_up(name):
+	tooltip.play_dialog_timed("+key", 3)

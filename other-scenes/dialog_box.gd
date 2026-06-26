@@ -16,3 +16,10 @@ func play_dialog(text):
 	show()
 	displaying = true
 	words.text = text
+
+func play_dialog_timed(text, time):
+	play_dialog(text)
+	await get_tree().create_timer(time).timeout
+	displaying = false
+	hide()
+	
