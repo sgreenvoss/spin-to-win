@@ -1,6 +1,7 @@
 extends Control
 var displaying = true
 @onready var words = $words
+@onready var word_arr = $word_arr
 
 signal contd()
 
@@ -16,6 +17,18 @@ func play_dialog(text):
 	show()
 	displaying = true
 	words.text = text
+
+func char_say(text, character):
+	match character:
+		"l":
+			word_arr.global_position.x = 472
+			word_arr.scale.x = -1
+		"r":
+			word_arr.global_position.x = 628
+			word_arr.scale.x = 1
+	word_arr.show()
+	play_dialog(text)
+	
 
 func play_dialog_timed(text, time):
 	play_dialog(text)

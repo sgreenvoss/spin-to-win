@@ -31,6 +31,7 @@ Goals:
     - splash screen/start menu
 - story stuff? 
     - storyboarded out: work on drawing these (not necessary to have all)
+
     - AN ENDING PLEASE?
 - DONE: zones/fog of war type shit -> before entering a room, its tiles are invisible and enemies are dormant
     - DONE i think: important: fix the sorting on the brick wall. perchance nix the fancy sorting
@@ -39,3 +40,7 @@ Goals:
 might be using the explosion from https://tenor.com/view/explosion-boom-deltarune-gif-23822980
 
 font is https://managore.itch.io/m5x7
+
+https://godotshaders.com/shader/glow-effect-2d/
+https://www.partshnc.com/34hp-ecm-blower-motor-14?srsltid=AfmBOooowWjXDhL2z3oGU9svzI9cYhbMXpQD2YM_g8AqWSOi1tW4p-9y5kA
+
