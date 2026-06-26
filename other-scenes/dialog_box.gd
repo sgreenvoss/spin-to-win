@@ -5,11 +5,14 @@ var displaying = true
 
 signal contd()
 
+func _ready():
+	hide()
 
 func _process(_delta):
 	if displaying and Input.is_action_just_pressed("interact"):
 		displaying = false # or progress!
 		hide()
+		word_arr.hide()
 		contd.emit()
 
 		
@@ -28,7 +31,6 @@ func char_say(text, character):
 			word_arr.scale.x = 1
 	word_arr.show()
 	play_dialog(text)
-	
 
 func play_dialog_timed(text, time):
 	play_dialog(text)

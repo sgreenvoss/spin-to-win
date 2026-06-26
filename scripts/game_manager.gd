@@ -16,6 +16,8 @@ var PINK = Color(245,160,151)
 var open_key = false
 var boss_key = false
 var moving_chars = false
+var GRAY = Color(109,117,141)
+var MY_BLUE = Color(36,159,255)
 
 func _ready():
 	character.global_position = Vector2(525, 273)
@@ -41,21 +43,23 @@ func play_scene(_panel, words):
 		
 func play_intro():
 	money_text.hide()
+	var anim = character_2.get_child(0)
+	anim.set_animation("default")
 	if StateSaver.played_intro == true:
 		leaveCutscene()
 		return
 	paused = true
 	#Engine.time_scale = 0
 	await play_scene("DARK",
-					 "How could it have gone so wrong?")
+		"How could it have gone so wrong?")
 	await play_scene("CONF_1",
-					 "You can't think of a single moment where you blew your cover. Your infiltration of the ghost office was impeccable, your disguise imperceptible."
+		"You can't think of a single moment where you blew your cover. Your infiltration of the ghost office was impeccable, your disguise imperceptible."
 	)
 	await play_scene("CONF_2",
-					 "Somehow, those ingenious ghosts figured you out. You'll never know what tipped them off.")
+		"Somehow, those ingenious ghosts figured you out. You'll never know what tipped them off.")
 					
 	await play_scene("DARK",
-					 "An attempt at escape has left you stranded in a dank maintenance room, bullets beating against the too-thin door."
+		"An attempt at escape has left you stranded in a dank maintenance room, bullets beating against the too-thin door."
 	)
 	await play_dialog("You're safe. But for how long? You don't even have a weapon!")
 	character.show()
@@ -67,8 +71,39 @@ func play_intro():
 	tween.parallel().tween_property(character_2, "global_position", Vector2(1425,656), 0.65)
 	await tween.finished
 	await play_scene("DARK", "")
+	
+	anim.set_animation("talk")
 	await char_say("... What?", "r")
-	await char_say("[color=PINK]... What?[/color]", "l")
+	anim.set_animation("default")
+	
+	await char_say("[color=PINK]Greetings, cat! I am the 1186435 3/4HP ECM Blower Motor. I help control the airflow in the ghost office![/color]", "l")
+	await char_say("[color=PINK]Every second or so, I can make a little vortex that turns their bullets around! When bullets are in sight, point to where you'd like them to start spinning.[/color]", "l")
+	await char_say("[color=PINK]Watch out, though. [color=GRAY]Some bullets[/color] might be too heavy to spin.", "l")
+
+	anim.set_animation("talk")
+	await char_say("... Why are you helping me?", "r")
+	anim.set_animation("default")
+	
+	await char_say("[color=PINK]I'm scared of ghosts :([/color]", "l")
+
+	anim.set_animation("talk")
+	await char_say("Right.", "r")
+	anim.set_animation("default")
+
+	
+	anim.set_animation("talk")
+	await char_say("Thank you. I will try my best.", "r")
+	anim.set_animation("default")
+	
+	tween = create_tween()
+	tween.tween_property(character, "global_position", Vector2(-300,273), 0.65)
+	tween.parallel().tween_property(character_2, "global_position", Vector2(1125,656), 0.65)
+	await tween.finished
+	
+	anim.set_animation("talk")
+	await play_dialog("Okay. I need to find and incapacitate the boss to take his important business documents. I should also try to take as much money as I can.")
+	anim.set_animation("default")
+
 	leaveCutscene()
 	character.hide()
 	character_2.hide()
