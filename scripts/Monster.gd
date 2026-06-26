@@ -73,18 +73,19 @@ func take_damage(amt: int):
 	animated_sprite_2d.material.set_shader_parameter("solid_color", PINK)
 	play_dmg()
 	if health <= 0:
-		#drop()
 		var splosion = SplodeEffect.instantiate()
 		splosion.position = position
 		splosion.explosion = "deltarune"
 		get_parent().add_child(splosion)
-		
+		#
 		if drop:
 			var d = drops.instantiate()
-			get_tree().current_scene.add_child(d)
 			#d.picked_up.connect(GameManager.on_key_picked_up)
 			d.position = position
-			get_parent().add_child(d)
+			d.picked_up.connect(
+				get_tree().get_first_node_in_group("manager").on_pickup_collected
+			)
+			get_parent().call_deferred("add_child", d)
 		queue_free()
 
 #func drop(key_id=0):

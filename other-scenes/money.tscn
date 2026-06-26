@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch54g5ywxwkt7"]
+
+[ext_resource type="PackedScene" uid="uid://csjxkp2fs6lnf" path="res://other-scenes/key.tscn" id="1_74jnk"]
+[ext_resource type="Texture2D" uid="uid://jrth4wfy5f7t" path="res://sprites/money.png" id="2_3jo2c"]
+
+[node name="Money" instance=ExtResource("1_74jnk")]
+pickup_name = "$100"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_3jo2c")

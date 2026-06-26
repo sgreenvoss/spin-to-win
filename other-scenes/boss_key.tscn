@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0dtcar4lf6o2"]
+
+[ext_resource type="PackedScene" uid="uid://csjxkp2fs6lnf" path="res://other-scenes/key.tscn" id="1_toft5"]
+
+[node name="Boss_Key" instance=ExtResource("1_toft5")]
+pickup_name = "boss' key"

@@ -7,6 +7,10 @@ class_name GameManager
 @onready var tooltip = $Control/tooltip
 var money = 0
 var paused = false
+@onready var character = $Control/panel/character
+var PINK = Color(245,160,151)
+var open_key = false
+var boss_key = false
 
 func _ready():
 	play_intro()
@@ -26,7 +30,7 @@ func play_intro():
 		leaveCutscene()
 		return
 	paused = true
-	Engine.time_scale = 0
+	#Engine.time_scale = 0
 	await play_scene("DARK",
 					 "How could it have gone so wrong?")
 	await play_scene("CONF_1",
@@ -38,9 +42,12 @@ func play_intro():
 	await play_scene("DARK",
 					 "An attempt at escape has left you stranded in a dank maintenance room, bullets beating against the too-thin door."
 	)
-	await play_dialog("You're safe. But for how long?")
-	await play_dialog("You don't even have a weapon!")
+	await play_dialog("You're safe. But for how long? You don't even have a weapon!")
+	character.show()
+	await play_dialog("[color=PINK]Don't worry, you'll get out of this okay![/color]")
+	
 	leaveCutscene()
+	character.hide()
 
 func leaveCutscene():
 	panel.hide()
@@ -60,8 +67,8 @@ func pauseMenu():
 	
 	paused = !paused
 	
-func play_dialog(text):
-	dialog_box.play_dialog(text)
+func play_dialog(text, color="white"):
+	dialog_box.play_dialog(text, color)
 	await dialog_box.contd
 	return
 
@@ -84,7 +91,10 @@ func _on_dialog_box_contd():
 	pass # Replace with function body.
 
 
-
-
-func on_key_picked_up(name):
-	tooltip.play_dialog_timed("+key", 3)
+func on_pickup_collected(name):
+	match name:
+		"key":
+			open_key = true
+		"$100":
+			money += 100
+	tooltip.play_dialog_timed("+ %s" %name, 3)

@@ -1,11 +1,15 @@
-[gd_scene load_steps=54 format=4 uid="uid://dbmey2lxm8xin"]
+[gd_scene load_steps=61 format=4 uid="uid://dbmey2lxm8xin"]
 
 [ext_resource type="Script" uid="uid://dnukurpo5b0ht" path="res://scripts/game_manager.gd" id="1_0k3yd"]
 [ext_resource type="TileSet" uid="uid://d1klje12ky6bx" path="res://other-scenes/tiles.tres" id="2_0k3yd"]
+[ext_resource type="Shader" uid="uid://dajorpg3ulo3n" path="res://other-scenes/glow.gdshader" id="3_ej18q"]
 [ext_resource type="PackedScene" uid="uid://dp0ex7umdt51d" path="res://other-scenes/door.tscn" id="3_f84k1"]
 [ext_resource type="PackedScene" uid="uid://duqi741venl3r" path="res://characters/tycho.tscn" id="3_k42qd"]
 [ext_resource type="Script" uid="uid://hbxs3ms7xotc" path="res://scripts/heart.gd" id="3_ud5r4"]
+[ext_resource type="Texture2D" uid="uid://chb0cip1g4a00" path="res://sprites/aura.png" id="3_xmspe"]
 [ext_resource type="PackedScene" uid="uid://u35821pwhiv3" path="res://characters/eyeguy.tscn" id="4_f84k1"]
+[ext_resource type="Script" uid="uid://ckjnj0lv1xed6" path="res://scripts/size_change.gd" id="4_xk4rg"]
+[ext_resource type="Texture2D" uid="uid://bhoshfcgk7x4h" path="res://sprites/blower_motor.png" id="4_xmspe"]
 [ext_resource type="PackedScene" uid="uid://chsnukbg07gqa" path="res://other-scenes/unspinnable-bullet.tscn" id="5_0k3yd"]
 [ext_resource type="Script" uid="uid://c4s50kjte7476" path="res://other-scenes/dialog_box.gd" id="5_ix0k6"]
 [ext_resource type="Script" uid="uid://bvxf0ha8x8yls" path="res://scripts/vortex.gd" id="5_ud5r4"]
@@ -26,7 +30,17 @@
 [ext_resource type="Script" uid="uid://cndkw7sg3eeps" path="res://scripts/state_saver.gd" id="21_hdq18"]
 [ext_resource type="Shader" uid="uid://dmn25rcmehq13" path="res://scripts/hit_flash.gdshader" id="21_olqe4"]
 [ext_resource type="Texture2D" uid="uid://xlj6bea3s5pi" path="res://sprites/silly_ghost.png" id="22_4pcjc"]
+[ext_resource type="PackedScene" uid="uid://ch54g5ywxwkt7" path="res://other-scenes/money.tscn" id="22_5ved8"]
 [ext_resource type="PackedScene" uid="uid://csjxkp2fs6lnf" path="res://other-scenes/key.tscn" id="27_hcdie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xk4rg"]
+shader = ExtResource("3_ej18q")
+shader_parameter/color1 = Color(1, 1, 1, 1)
+shader_parameter/color2 = Color(1, 1, 1, 1)
+shader_parameter/threshold = 1.0
+shader_parameter/intensity = 100.0
+shader_parameter/opacity = 100.0
+shader_parameter/glow_color = Color(0.99736, 1, 0.958913, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f84k1"]
 size = Vector2(14, 31)
@@ -204,11 +218,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Game" type="Node"]
+[sub_resource type="Environment" id="Environment_ej18q"]
+glow_enabled = true
+
+[node name="Game" type="Node" groups=["manager"]]
 script = ExtResource("1_0k3yd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 offset_left = -598.0
 offset_top = -870.0
 offset_right = -534.0
@@ -270,7 +286,24 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "give up"
 
+[node name="aura" type="Sprite2D" parent="Control/panel"]
+process_mode = 3
+physics_interpolation_mode = 1
+visible = false
+position = Vector2(613.5, 304.5)
+scale = Vector2(1.362, 1.362)
+texture = ExtResource("3_xmspe")
+script = ExtResource("4_xk4rg")
+
+[node name="character" type="Sprite2D" parent="Control/panel"]
+visible = false
+material = SubResource("ShaderMaterial_xk4rg")
+position = Vector2(590.5, 272.5)
+scale = Vector2(1.3625, 1.3625)
+texture = ExtResource("4_xmspe")
+
 [node name="DialogBox" type="Control" parent="Control"]
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 7
@@ -336,6 +369,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
 text = "hello testsfsdfkhs;df
 "
 
@@ -464,6 +498,10 @@ zoom = Vector2(3, 3)
 
 [node name="hallway" parent="." instance=ExtResource("8_iy8hv")]
 
+[node name="eyeguy5" parent="hallway/Creatures" index="0"]
+drop = true
+drops = ExtResource("22_5ved8")
+
 [node name="fow" parent="hallway" index="2"]
 visible = false
 offset_top = -49.0
@@ -494,6 +532,8 @@ position = Vector2(-11, 356)
 bullet_type = ExtResource("5_0k3yd")
 spawn_point_count = 2
 shoot_delay = 0.5
+drop = true
+drops = ExtResource("22_5ved8")
 
 [node name="fow" type="Control" parent="Room1"]
 visible = false
@@ -583,6 +623,7 @@ script = ExtResource("8_u74lg")
 y_sort_enabled = true
 position = Vector2(373, 201)
 script = ExtResource("19_fmslr")
+locked = true
 orientation = "r"
 
 [node name="Sprite2D" type="Sprite2D" parent="OpenSpace/Door"]
@@ -620,6 +661,7 @@ script = ExtResource("21_4pcjc")
 bullet_type = ExtResource("6_k8qdy")
 spawn_point_count = 5
 shoot_delay = 0.5
+drop = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpenSpace/Creatures/silly_ghost"]
 shape = SubResource("CircleShape2D_hcdie")
@@ -692,6 +734,9 @@ script = ExtResource("21_hdq18")
 [node name="Key" parent="." instance=ExtResource("27_hcdie")]
 visible = false
 position = Vector2(-64, 224)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ej18q")
 
 [connection signal="pressed" from="Control/panel/buttons/try_again" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="Control/panel/buttons/give_up" to="." method="_on_give_up_pressed"]

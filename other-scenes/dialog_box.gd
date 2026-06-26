@@ -12,7 +12,13 @@ func _process(_delta):
 		contd.emit()
 
 		
-func play_dialog(text):
+func play_dialog(text, color="white"):
+	match color:
+		"white":
+			add_theme_color_override("font_color", Color.WHITE)
+		"pink":
+			add_theme_color_override("font_color", Color(245,160,151))
+
 	show()
 	displaying = true
 	words.text = text
